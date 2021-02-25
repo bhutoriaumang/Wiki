@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from . import util
 
 
@@ -9,4 +8,6 @@ def index(request):
     })
 
 def page(request, page):
-    return HttpResponse(f"Hello { page }")
+    return render(request, "encyclopedia/page.html",{
+        "page": util.get_entry(request.POST.get("page"))
+    })
