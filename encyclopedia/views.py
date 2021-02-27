@@ -11,5 +11,11 @@ def index(request):
 def page(request):
     markdowner = Markdown()
     return render(request, "encyclopedia/page.html",{
-        "page": markdowner.convert(util.get_entry("CSS"))
+        "page": markdowner.convert(util.get_entry(request.GET.get("page")))
+    })
+
+def entry(request,entry):
+    markdowner = Markdown()
+    return render(request, "encyclopedia/page.html",{
+        "page": markdowner.convert(util.get_entry(entry))
     })
