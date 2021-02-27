@@ -8,8 +8,8 @@ def index(request):
         "entries": util.list_entries()
     })
 
-def page(request, page):
+def page(request):
     markdowner = Markdown()
     return render(request, "encyclopedia/page.html",{
-        "page": markdowner.convert(util.get_entry(page))
+        "page": markdowner.convert(util.get_entry("CSS"))
     })

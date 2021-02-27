@@ -1,5 +1,5 @@
-<html>
-    <body>
-        {{ page|safe }}
-    </body>
-</html>
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+    {{ page|safe }}
+{% endblock %}
