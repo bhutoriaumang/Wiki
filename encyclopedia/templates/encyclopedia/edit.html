@@ -1,26 +1,27 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    Create a Page
+    Edit a Page
 {% endblock %}
 
 {% block body %}
 
-    {% with flag="True" %}
+    {% with flag="False" %}
 
-    <h1>Create a page:</h1>
+    <h1>Edit a page:</h1>
     <form action="{% url 'encyclopedia:createpage' flag %}" method="GET">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Title:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" name = "title" placeholder="Enter the title of the page">
+            <input type="text" value={{title}} class="form-control" id="exampleFormControlInput1" name = "title" placeholder="Enter the title of the page" readonly>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Content:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" name = "content" rows="5" placeholder="Enter the content"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name = "content" rows="5" placeholder="Enter the content">{{ content }}</textarea>
           </div>
           <div class="mb-3">
-            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            <button type="submit" class="btn btn-primary mb-3">Save</button>
           </div>
     </form>
+
     {% endwith %}
 {% endblock %}
