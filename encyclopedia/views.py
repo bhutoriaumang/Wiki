@@ -16,7 +16,7 @@ def index(request):
     })
 
 def page(request):
-    path = "/encyclopedia/"+request.GET.get("page")
+    path = "/encyclopedia/"+request.GET.get("page")+"/"
     return redirect(path)
 
 def entry(request,entry):
@@ -33,11 +33,11 @@ def create(request):
 
 def createpage(request):
     util.save_entry(request.GET.get("title"),request.GET.get("content"))
-    return redirect("/encyclopedia")
+    return redirect("/encyclopedia/")
 
 def random(request):
     l = []
     for i in entries:
         l.append(i)
-    path = "/encyclopedia/"+(sample(l,1)[0])
+    path = "/encyclopedia/"+(sample(l,1)[0])+"/"
     return redirect(path)
